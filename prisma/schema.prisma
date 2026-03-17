@@ -1,0 +1,116 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  ADMIN
+  EDITOR
+  READER
+}
+
+enum UserStatus {
+  ACTIVE
+  MUTED
+  DISABLED
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+model User {
+  id                BigInt      @id @default(autoincrement()) @db.UnsignedBigInt
+  email             String      @unique @db.VarChar(191)
+  name              String?     @db.VarChar(100)
+  passwordHash      String      @db.VarChar(255)
+  role              UserRole    @default(READER)
+  status            UserStatus  @default(ACTIVE)
+  nicknameUpdatedAt DateTime?
+  lastLoginAt       DateTime?
+  deletedAt         DateTime?
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+
+  posts             Post[]      @relation("PostAuthor")
+  comments          Comment[]
+
+  @@index([role])
+  @@index([status])
+  @@map("users")
+}
+
+model Post {
+  id          BigInt      @id @default(autoincrement()) @db.UnsignedBigInt
+  slug        String      @unique @db.VarChar(191)
+  title       String      @db.VarChar(255)
+  excerpt     String?     @db.Text
+  coverImage  String?     @db.VarChar(500)
+  contentPath String      @db.VarChar(500)
+  category    String?     @db.VarChar(100)
+  status      PostStatus  @default(DRAFT)
+  publishedAt DateTime?
+  authorId    BigInt      @db.UnsignedBigInt
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  author      User        @relation("PostAuthor", fields: [authorId], references: [id], onDelete: Restrict)
+  tags        PostTag[]
+  comments    Comment[]
+
+  @@index([status, publishedAt])
+  @@index([category])
+  @@index([authorId])
+  @@map("posts")
+}
+
+model Tag {
+  id        BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  slug      String    @unique @db.VarChar(100)
+  name      String    @unique @db.VarChar(100)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  posts     PostTag[]
+
+  @@map("tags")
+}
+
+model PostTag {
+  postId    BigInt   @db.UnsignedBigInt
+  tagId     BigInt   @db.UnsignedBigInt
+  createdAt DateTime @default(now())
+
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  tag       Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([postId, tagId])
+  @@index([tagId])
+  @@map("post_tags")
+}
+
+model Comment {
+  id          BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  postId      BigInt    @db.UnsignedBigInt
+  userId      BigInt?   @db.UnsignedBigInt
+  authorName  String?   @db.VarChar(100)
+  authorEmail String?   @db.VarChar(191)
+  content     String    @db.Text
+  parentId    BigInt?   @db.UnsignedBigInt
+  isApproved  Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  post        Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user        User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([postId, createdAt])
+  @@index([userId])
+  @@map("comments")
+}
