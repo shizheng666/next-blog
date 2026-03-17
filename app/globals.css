@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 36 33% 97%;
+  --foreground: 30 10% 12%;
+  --card: 0 0% 100%;
+  --card-foreground: 30 10% 12%;
+  --primary: 18 82% 45%;
+  --primary-foreground: 0 0% 100%;
+  --border: 30 15% 85%;
+  --muted: 33 20% 93%;
+  --muted-foreground: 26 12% 40%;
+}
+
+.dark {
+  --background: 26 17% 9%;
+  --foreground: 36 18% 92%;
+  --card: 26 18% 12%;
+  --card-foreground: 36 18% 92%;
+  --primary: 23 82% 55%;
+  --primary-foreground: 0 0% 100%;
+  --border: 26 12% 25%;
+  --muted: 26 13% 18%;
+  --muted-foreground: 28 12% 70%;
+}
+
+body {
+  color: hsl(var(--foreground));
+  background:
+    radial-gradient(circle at top right, rgba(255, 200, 140, 0.25), transparent 40%),
+    radial-gradient(circle at bottom left, rgba(240, 180, 130, 0.2), transparent 35%),
+    hsl(var(--background));
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  scrollbar-color: hsl(var(--primary) / 0.5) transparent;
+}
+
+a,
+button,
+input,
+textarea {
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease,
+    transform 150ms ease;
+}
+
+.prose-content h1,
+.prose-content h2,
+.prose-content h3 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.prose-content p {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.8;
+}
+
+.prose-content pre {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  overflow: auto;
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--border));
+  padding: 1rem;
+}
