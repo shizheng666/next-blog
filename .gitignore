@@ -1,0 +1,13 @@
+node_modules
+.next
+.worktrees
+.opencode
+dist
+coverage
+.DS_Store
+.env
+*.log
+prisma/dev.db
+.claude
+.agents
+CLAUDE.md
