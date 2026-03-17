@@ -11,3 +11,4 @@ prisma/dev.db
 .claude
 .agents
 CLAUDE.md
+DEPLOY.md
