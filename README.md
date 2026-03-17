@@ -1,4 +1,4 @@
-# Customer Blog
+# Next Blog
 
 一个基于 Next.js 15、React 19、Prisma 和 MySQL 的前后端同仓博客系统，包含公开博客、用户体系、评论审核、文章后台、标签管理、素材上传与基础部署脚本。
 

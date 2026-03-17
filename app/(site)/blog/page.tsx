@@ -29,8 +29,8 @@ export async function generateMetadata({ searchParams }: BlogPageProps): Promise
   return buildPageMetadata({
     title: normalizedKeyword ? `搜索“${normalizedKeyword}”` : "文章列表",
     description: normalizedKeyword
-      ? `查看 Customer Blog 中与“${normalizedKeyword}”相关的文章结果。`
-      : "浏览 Customer Blog 的全部公开文章、教程与实践记录。",
+      ? `查看 Next Blog 中与“${normalizedKeyword}”相关的文章结果。`
+      : "浏览 Next Blog 的全部公开文章、教程与实践记录。",
     pathname: "/blog",
     keywords: normalizedKeyword ? [normalizedKeyword, "博客搜索"] : ["文章列表", "博客归档"],
     noIndex: Boolean(normalizedKeyword)

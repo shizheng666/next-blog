@@ -4,11 +4,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 const defaultOgImage = "/opengraph-image";
 
 export const siteConfig = {
-  name: "Customer Blog",
+  name: "Next Blog",
   description: "一个现代化、性能优先、SEO 友好的个人博客系统。",
   siteUrl,
   defaultOgImage,
-  author: "Customer Blog"
+  author: "Next Blog"
 };
 
 function createAbsoluteUrl(pathname = "/") {

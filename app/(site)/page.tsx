@@ -8,7 +8,7 @@ import { listTags } from "@/services/tag.service";
 export const revalidate = 300;
 export const metadata: Metadata = buildPageMetadata({
   title: "首页",
-  description: "浏览最新文章、热门标签，以及 Customer Blog 的完整内容入口。",
+  description: "浏览最新文章、热门标签，以及 Next Blog 的完整内容入口。",
   pathname: "/",
   keywords: ["博客首页", "最新文章", "标签导航"]
 });

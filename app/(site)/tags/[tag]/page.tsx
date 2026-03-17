@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: TagDetailPageProps): Promise<
 
   return buildPageMetadata({
     title: `标签：${label}`,
-    description: `浏览 Customer Blog 中与 ${label} 相关的全部公开文章。`,
+    description: `浏览 Next Blog 中与 ${label} 相关的全部公开文章。`,
     pathname: `/tags/${tag}`,
     keywords: [label, "标签归档"]
   });

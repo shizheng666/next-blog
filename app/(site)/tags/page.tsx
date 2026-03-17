@@ -5,7 +5,7 @@ import { listTags } from "@/services/tag.service";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "全部标签",
-  description: "按主题浏览 Customer Blog 的全部标签与内容分类。",
+  description: "按主题浏览 Next Blog 的全部标签与内容分类。",
   pathname: "/tags",
   keywords: ["博客标签", "内容分类"]
 });

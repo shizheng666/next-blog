@@ -10,5 +10,12 @@ coverage
 prisma/dev.db
 .claude
 .agents
+content/posts/**
+!content/posts/
+!content/posts/.gitkeep
+!content/posts/README.md
+public/uploads/mock-wallpapers/**
+!public/uploads/mock-wallpapers/
+!public/uploads/mock-wallpapers/.gitkeep
 CLAUDE.md
 DEPLOY.md

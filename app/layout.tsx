@@ -27,7 +27,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               <header className="mb-8 flex items-center justify-between rounded-xl border bg-card/80 p-4 backdrop-blur">
                 <div>
                   <Link href="/" className="text-lg font-bold">
-                    Customer Blog
+                    Next Blog
                   </Link>
                   <p className="text-xs text-muted-foreground">Next.js 15 全栈博客实践</p>
                 </div>

@@ -26,8 +26,8 @@ export default function OpenGraphImage() {
         }}
       >
         <div style={{ fontSize: 28, opacity: 0.8 }}>Modern Personal Blog</div>
-        <div style={{ fontSize: 72, fontWeight: 700, marginTop: 16 }}>Customer Blog</div>
-        <div style={{ fontSize: 30, opacity: 0.85, marginTop: 20 }}>Next.js 14+ App Router · SEO · MDX</div>
+        <div style={{ fontSize: 72, fontWeight: 700, marginTop: 16 }}>next Blog</div>
+        <div style={{ fontSize: 30, opacity: 0.85, marginTop: 20 }}>Next.js 15+ App Router · SEO · MDX</div>
       </div>
     ),
     {
